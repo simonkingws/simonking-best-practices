@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+# 配置数据原信息
+spring:
+  datasource:
+    url: jdbc:mysql://10.100.210.35:3306/test?characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: autostreets
+    password: autostreets
+
+# mybatis-plus的基本配置
+mybatis-plus:
+  type-aliases-package: com.simonking.resposity.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 默认就是  classpath*:/mapper/**/*.xml 可以不配置： 指定扩展xml文件的位置
+  # mapper-locations: classpath*:/mapper/**/*.xml
+
+
+# 注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.100.213.51:8000/eureka/,http://10.100.213.52:8000/eureka/
+  instance:
+    appname: simonking-microservices
+
